@@ -265,7 +265,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4614644611521329711, guid: 0ff0acfc9548bae49b1d68a67afc8134, type: 3}
       propertyPath: _outputFormat
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4614644611521329711, guid: 0ff0acfc9548bae49b1d68a67afc8134, type: 3}
       propertyPath: timeToDumpQueue

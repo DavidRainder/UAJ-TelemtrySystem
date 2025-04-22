@@ -29,7 +29,7 @@ namespace TelemetrySystem
             }
             catch (Exception e)
             {
-                Debug.LogError("Couldn't write to file. Maybe disk is full. Pleas check. Shutting Tracking System down");
+                Debug.LogError("Couldn't write to file. Maybe disk is full. Please check. Shutting Tracking System down");
             }
         }
 

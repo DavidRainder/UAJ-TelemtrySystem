@@ -9,20 +9,28 @@ namespace TelemetrySystem
     {
         XmlDocument xmlDocument = null;
         XmlNode eventsNode = null;
+        public XMLSerializer()
+        {
+            xmlDocument = new XmlDocument();
+            eventsNode = xmlDocument.CreateElement("events");
+            xmlDocument.AppendChild(eventsNode);
+           
+        }
 
         public string Serialize(TrackerEvent e)
         {
-            return e.ToXML(xmlDocument, eventsNode, out XmlNode myEvent);
+            e.ToXML(xmlDocument, eventsNode, out XmlNode myEvent);
+            return myEvent.OuterXml + "\n";
         }
 
         public string StartingContent()
         {
-            throw new System.NotImplementedException();
+            return "<events>\n";
         }
 
         public string FinalContent()
         {
-            throw new System.NotImplementedException();
+            return "</events>";
         }
     }
 }
