@@ -15,7 +15,7 @@ namespace TelemetrySystem {
             get { 
                 if (_instance == null)
                 {
-                    Debug.Log("Tracker is not present on scene. " +
+                    Debug.LogError("Tracker is not present on scene. " +
                         "In order to register events you must include the Telemetry prefab in the " +
                         "initial scene of your application. " +
                         "Now returning null to the Tracker.Instance call.");
