@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2908597813814736608}
   - component: {fileID: 4614644611521329711}
-  - component: {fileID: 2865524003680261787}
   m_Layer: 0
   m_Name: Telemetry
   m_TagString: Untagged
@@ -45,19 +44,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa95f7e29ce53f54fa00fd114c1f4b09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _timeToDumpQueue: 10
-  _fileDestinationName: Telemetry
   _outputFormat: 0
---- !u!114 &2865524003680261787
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8994916520810821331}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01eb64b621f3fd64d8e1a66ffb94bda7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  eventNames: []
+  timeToDumpQueue: 0

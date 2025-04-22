@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -268,6 +268,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4614644611521329711, guid: 0ff0acfc9548bae49b1d68a67afc8134, type: 3}
+      propertyPath: timeToDumpQueue
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4614644611521329711, guid: 0ff0acfc9548bae49b1d68a67afc8134, type: 3}
       propertyPath: _timeToDumpQueue
       value: 1
       objectReference: {fileID: 0}
@@ -279,17 +283,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Telemetry
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 2865524003680261787, guid: 0ff0acfc9548bae49b1d68a67afc8134, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 8994916520810821331, guid: 0ff0acfc9548bae49b1d68a67afc8134, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1358185991}
-    - targetCorrespondingSourceObject: {fileID: 8994916520810821331, guid: 0ff0acfc9548bae49b1d68a67afc8134, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1358185992}
   m_SourcePrefab: {fileID: 100100000, guid: 0ff0acfc9548bae49b1d68a67afc8134, type: 3}
 --- !u!1 &1358185990 stripped
 GameObject:
@@ -329,19 +329,6 @@ MonoBehaviour:
     activation: 1
   - name: PlayerPosition
     activation: 1
---- !u!114 &1358185992
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1358185990}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb76a6979cd051e45afb08047ecb1720, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  databasePath: data/events
 --- !u!1 &1837128525
 GameObject:
   m_ObjectHideFlags: 0
