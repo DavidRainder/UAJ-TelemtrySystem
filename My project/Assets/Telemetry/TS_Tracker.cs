@@ -36,7 +36,6 @@ namespace TelemetrySystem {
         [SerializeField] float _timeToDumpQueue;
         [SerializeField] string _fileDestinationName = "Telemetry";
         [SerializeField] SerializationFormat _outputFormat = SerializationFormat.JSON;
-        public string finalFileNameDB = "";
         #endregion
 
         private void Start()
