@@ -59,6 +59,7 @@ sysinfo.txt
 *.apk
 *.aab
 *.unitypackage
+!TelemetrySystem.unitypackage
 *.app
 
 # Crashlytics generated file
