@@ -1,7 +1,6 @@
 #nullable enable
 
-// namespace System.Collections.Generic {
-namespace Utils
+namespace TS_CollectionUtils
 {
 
     // Licensed to the .NET Foundation under one or more agreements.
