@@ -33,9 +33,13 @@ namespace TelemetrySystem {
         enum SerializationFormat { JSON, XML }
         [SerializeField] SerializationFormat _outputFormat = SerializationFormat.JSON;
 
+        enum PersistenceType { File, Server}
+        [SerializeField] PersistenceType _saveFormat = PersistenceType.File;
+
         #region Parameters
         [SerializeField] float timeToDumpQueue;
         string filePath = "";
+        [SerializeField] string serverPath = "http://localhost:5000"; //Este path es de ejemplo, habria que cambiarlo al link del servidor
         #endregion
 
         #region Private Variables
@@ -60,21 +64,31 @@ namespace TelemetrySystem {
             events = new Queue<TrackerEvent>();
             persistentEvents = new PriorityQueue<TrackerPersistentEvent, long>();
             _eventRegistry = GetComponent<EventRegistry>();
-           
-            switch (_outputFormat)
-            {
-                case SerializationFormat.JSON:
-                    persistenceObject = new FilePersistence(filePath, new JsonSerializer());
-                    break;
-                case SerializationFormat.XML:
-                    persistenceObject = new FilePersistence(filePath, new XMLSerializer());
-                    break;
 
-            }
 
             //if(_eventRegistry == null)
             // error handling de ^^
 
+            switch (_saveFormat)
+            {
+                case PersistenceType.File:
+                    switch (_outputFormat)
+                    {
+                        case SerializationFormat.JSON:
+                            persistenceObject = new FilePersistence(filePath, new JsonSerializer());
+                            break;
+                        case SerializationFormat.XML:
+                            persistenceObject = new FilePersistence(filePath, new XMLSerializer());
+                            break;
+
+                    }
+                    break;
+
+                case PersistenceType.Server:
+                    persistenceObject = new ServerPersistence(serverPath, new JsonSerializer());
+                    break;
+
+            }
             mutEvents = new Mutex();
             mutPersistentEvents = new Mutex();
 
@@ -104,39 +118,6 @@ namespace TelemetrySystem {
             killDumpEvents = true;
             killPersistentEvents = true;
         }
-
-        //private void OpenAndStartXMLFile()
-        //{
-
-        //    xmlDocument = new XmlDocument();
-        //    eventsNode = xmlDocument.CreateElement("events");
-        //    xmlDocument.AppendChild(eventsNode);
-        //}
-
-        //private void CloseAndEndXMLFile()
-        //{
-        //    if (xmlDocument != null) {
-        //        try
-        //        {
-        //            xmlDocument.Save(finalFileName);
-        //        }
-        //        catch (XmlException e)
-        //        {
-        //            Debug.LogError($"XmlDocument couldn't be saved: {e.Message} \n" +
-        //            "Some events have been lost.\n" +
-        //            "Changing to JSON format");
-
-        //            StartCoroutine(ChangeFromXMLToJSON());
-        //        }
-        //    }
-        //    else
-        //    {
-        //        Debug.LogError("XmlDocument couldn't be saved.\n" +
-        //           "Some events have been lost.\n" +
-        //           "Changing to JSON format");
-        //        StartCoroutine(ChangeFromXMLToJSON());
-        //    }
-        //}
 
         TrackerPersistentEvent _currentPersistentEvent;
         long _currentPriority;
