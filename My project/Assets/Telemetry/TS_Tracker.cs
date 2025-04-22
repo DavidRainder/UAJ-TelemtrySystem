@@ -11,7 +11,16 @@ namespace TelemetrySystem {
     {
         #region Singleton
         private static Tracker _instance = null;
-        public static Tracker Instance { get { return _instance; } }
+        public static Tracker Instance { 
+            get { 
+                if (_instance == null)
+                {
+                    Debug.Log("Tracker is not present on scene. " +
+                        "In order to register events you must include the Telemetry prefab in the " +
+                        "initial scene of your application. " +
+                        "Now returning null to the Tracker.Instance call.");
+                }
+                return _instance; } }
         private void Awake()
         {
             if (_instance == null)
