@@ -102,8 +102,6 @@ namespace TelemetrySystem {
             }
 
             finalFileName = Application.persistentDataPath + "/" + numSession + "_" + baseFileName;
-            finalFileNameDB = Application.streamingAssetsPath + "/" + numSession + "_" + baseFileName;
-
         }
 
         private void OpenAndStartXMLFile()
