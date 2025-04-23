@@ -31,10 +31,11 @@ namespace TelemetrySystem
                 // extensión tendrá nuestro archivo
                 CheckPreviousFiles(serializer.FileExtension());
             }
-            catch (DirectoryNotFoundException ex) {
+            catch (DirectoryNotFoundException ex)
+            {
                 this.filePath = Application.persistentDataPath + '/';
 
-                Debug.LogError("'" + directoryPath + 
+                Debug.LogError("'" + directoryPath +
                     "' was not found. Now defaulting TelemtrySystem to: " + this.filePath);
 
                 CheckPreviousFiles(serializer.FileExtension());
@@ -88,7 +89,7 @@ namespace TelemetrySystem
                 string[] split = info.Name.Split('_');
                 if (split[1] == baseFileName)
                 {
-                    numSession = int.Parse(split[0]) + 1;
+                    numSession = Math.Max(numSession, int.Parse(split[0]) + 1);
                 }
             }
 
