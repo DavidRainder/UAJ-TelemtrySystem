@@ -390,6 +390,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7295492144139846800, guid: 0ff0acfc9548bae49b1d68a67afc8134, type: 3}
+      propertyPath: eventNames.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7295492144139846800, guid: 0ff0acfc9548bae49b1d68a67afc8134, type: 3}
+      propertyPath: eventNames.Array.data[4].name
+      value: LevelPause
+      objectReference: {fileID: 0}
+    - target: {fileID: 7295492144139846800, guid: 0ff0acfc9548bae49b1d68a67afc8134, type: 3}
+      propertyPath: eventNames.Array.data[5].name
+      value: LevelUnpause
+      objectReference: {fileID: 0}
+    - target: {fileID: 7295492144139846800, guid: 0ff0acfc9548bae49b1d68a67afc8134, type: 3}
+      propertyPath: eventNames.Array.data[6].name
+      value: ChangeScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 7295492144139846800, guid: 0ff0acfc9548bae49b1d68a67afc8134, type: 3}
+      propertyPath: eventNames.Array.data[4].activation
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7295492144139846800, guid: 0ff0acfc9548bae49b1d68a67afc8134, type: 3}
+      propertyPath: eventNames.Array.data[5].activation
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7295492144139846800, guid: 0ff0acfc9548bae49b1d68a67afc8134, type: 3}
+      propertyPath: eventNames.Array.data[6].activation
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8994916520810821331, guid: 0ff0acfc9548bae49b1d68a67afc8134, type: 3}
       propertyPath: m_Name
       value: Telemetry

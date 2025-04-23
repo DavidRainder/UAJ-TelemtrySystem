@@ -71,3 +71,9 @@ MonoBehaviour:
     activation: 1
   - name: LevelEnd
     activation: 1
+  - name: LevelPause
+    activation: 1
+  - name: LevelUnpause
+    activation: 1
+  - name: ChangeScene
+    activation: 1
