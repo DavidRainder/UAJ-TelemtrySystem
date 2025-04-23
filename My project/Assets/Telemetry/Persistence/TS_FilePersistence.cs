@@ -25,12 +25,20 @@ namespace TelemetrySystem
             this.filePath = directoryPath;
             this.serializer = serializer;
 
-            // Queremos llamar al método estático del ISerializer "FileExtension" para saber qué
-            // extensión tendrá nuestro archivo
-            string fileExtension = (string)(serializer.GetType()).GetMethod("FileExtension").Invoke(null, null);
-            CheckPreviousFiles(fileExtension);
+            try
+            {
+                // Queremos llamar al método estático del ISerializer "FileExtension" para saber qué
+                // extensión tendrá nuestro archivo
+                CheckPreviousFiles(serializer.FileExtension());
+            }
+            catch (DirectoryNotFoundException ex) {
+                this.filePath = Application.persistentDataPath + '/';
 
-            Debug.Log(fileExtension);
+                Debug.LogError("'" + directoryPath + 
+                    "' was not found. Now defaulting TelemtrySystem to: " + this.filePath);
+
+                CheckPreviousFiles(serializer.FileExtension());
+            }
 
             WriteToFile(serializer.StartingContent());
         }

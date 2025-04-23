@@ -9,6 +9,19 @@ namespace TelemetrySystem
     public abstract class TrackerEvent
     {
         /// <summary>
+        /// Identificador único de la sesión compartido por todos los eventos
+        /// de un sesión
+        /// </summary>
+        private ulong sessionID;
+
+        /// <summary>
+        /// Setter de la variable privada sessionID
+        /// Solo debería utilizarlo el Tracker, que es quien conoce la ID de la sesión
+        /// </summary>
+        /// <param name="sessionID"> La ID de la sesión </param>
+        public void SetSessionID(ulong sessionID) { this.sessionID = sessionID; }
+
+        /// <summary>
         /// Tiempo del evento en el que ha sucedido.
         /// En formato POSIX
         /// </summary>
@@ -42,7 +55,9 @@ namespace TelemetrySystem
         /// <returns> El contenido del evento en JSON </returns>
         public virtual string ToJSON()
         {
-            return $"\"event_type\": \"{GetID()}\", \"time_stamp\": \"{TimeStamp.ToString()}\"";
+            return $"\"event_type\": \"{GetID()}\", " +
+                $"\"time_stamp\": \"{TimeStamp.ToString()}\", " +
+                $"\"session_id\": \"{sessionID.ToString()}\"";
         }
 
         /// <summary>
@@ -60,6 +75,11 @@ namespace TelemetrySystem
             XmlAttribute timeStamp = doc.CreateAttribute("timestamp");
             timeStamp.Value = TimeStamp.ToString();
             myEvent.Attributes.Append(timeStamp);
+
+            XmlAttribute sessionID = doc.CreateAttribute("sessionID");
+            sessionID.Value = this.sessionID.ToString();
+            myEvent.Attributes.Append(sessionID);
+
             return myEvent.OuterXml;
         }
     }

@@ -54,6 +54,6 @@ namespace TelemetrySystem
             return "</events>";
         }
 
-        public static string FileExtension() => ".xml";
+        public string FileExtension() => ".xml";
     }
 }

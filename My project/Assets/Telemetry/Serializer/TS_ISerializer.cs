@@ -45,10 +45,8 @@ namespace TelemetrySystem
 
         /// <summary>
         /// Extensión del archivo que utiliza el formato del serializador
-        /// Debe implementarse en cada hijo de ISerializer o se lanzará una excepción NotImplementedException
         /// </summary>
         /// <returns> Extensión del archivo que utiliza el formato del serializador </returns>
-        /// <exception cref="NotImplementedException"> Se lanzará si no se ha implementado el método en las clases hijo </exception>
-        public static string FileExtension() => throw new NotImplementedException();
+        public string FileExtension();
     }
 }

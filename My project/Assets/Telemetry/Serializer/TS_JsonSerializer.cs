@@ -52,6 +52,6 @@ namespace TelemetrySystem
             return content;
         }
 
-        public static string FileExtension() => ".json";
+        public string FileExtension() => ".json";
     }
 }
